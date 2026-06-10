@@ -1,6 +1,6 @@
 # Shahajadi Sadia Afsana — Portfolio
 
-Personal portfolio website — Data Analyst, Data Engineer & ML Engineer.
+Personal portfolio website — Data Analyst
 
 🔗 **Live:** [sadiaafsana138.github.io](https://sadiaafsana138.github.io)
 
