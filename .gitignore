@@ -1,0 +1,38 @@
+# ---- OS junk files ----
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ---- Editor / IDE ----
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# ---- Logs & temp ----
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# ---- Node (only if you ever add build tools) ----
+node_modules/
+npm-debug.log*
+yarn-error.log*
