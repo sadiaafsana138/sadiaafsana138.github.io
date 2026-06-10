@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Shahajadi Sadia Afsana — Data Analyst, Data Engineer & ML Engineer.">
+    <meta name="keywords" content="data analyst, machine learning, RAG, LLM, geospatial">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shahajadi Sadia Afsana — Data Analyst · Data Engineer · ML Engineer</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <!-- Black & Coffee theme override -->
+    <style>
+        :root {
+            --coffee: #c19a6b;
+            --coffee-light: #dcb487;
+            --coffee-deep: #8b5e3c;
+            --ink: #1a130c;
+            --panel: #221a11;
+            --surface: #2a1f14;
+            --soft: #c2b4a2;
+        }
+
+        body {
+            background: var(--ink);
+            color: #cabdac;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            color: #f5ede2;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section[id] {
+            scroll-margin-top: 90px;
+        }
+
+        /* Pinned navbar */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(12, 9, 6, .92);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 18px -8px rgba(0, 0, 0, .7);
+            padding: 6px 0;
+            transition: all .3s ease;
+        }
+
+        .brand-text {
+            color: #f5ede2;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'Play';
+            white-space: nowrap;
+        }
+
+        .brand-text span {
+            color: var(--coffee);
+        }
+
+        /* keep all nav links on one line (menu shifted left, tighter) */
+        .header__nav__menu {
+            margin-right: 0 !important;
+        }
+
+        .header__nav__menu ul {
+            white-space: nowrap;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+        }
+
+        .header__nav__menu ul li {
+            margin-right: 15px !important;
+        }
+
+        .header__nav__menu ul li:last-child {
+            margin-right: 0 !important;
+        }
+
+        .header__nav__menu ul li a {
+            color: #e8ddcf;
+            font-size: 13px;
+            letter-spacing: 0;
+            padding: 10px 0;
+        }
+
+        .header__nav__menu ul li.active a,
+        .header__nav__menu ul li a:hover {
+            color: var(--coffee-light);
+        }
+
+        /* mobile menu (☰) icon — coffee themed */
+        .slicknav_btn {
+            background: var(--coffee);
+            border-radius: 5px;
+        }
+
+        .slicknav_menu .slicknav_icon-bar {
+            background-color: #1a140e;
+        }
+
+        .slicknav_nav {
+            background: rgba(20, 15, 10, .98);
+            border: 1px solid rgba(193, 154, 107, .2);
+            border-radius: 8px;
+        }
+
+        .slicknav_nav a {
+            color: #e8ddcf;
+        }
+
+        .slicknav_nav a:hover {
+            background: var(--coffee);
+            color: #1a140e;
+            border-radius: 4px;
+        }
+
+        .primary-btn {
+            background: var(--coffee);
+            color: #1a140e;
+            border: none;
+        }
+
+        .primary-btn:hover {
+            background: #d9b083;
+            color: #1a140e;
+        }
+
+        /* hero bg image — dimmed more on the text (left) side, shows the subject on right */
+        .hero,
+        .hero__slider,
+        .hero__item {
+            background-color: #0e0b08;
+        }
+
+        .hero__item {
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+
+        .hero__item:before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(12, 9, 6, .68) 0%, rgba(12, 9, 6, .45) 55%, rgba(12, 9, 6, .34) 100%);
+        }
+
+        .hero__text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero__text span {
+            color: var(--coffee);
+            letter-spacing: 2px;
+        }
+
+        .hero__text h2 {
+            color: #fff;
+            font-size: 52px;
+        }
+
+        .hero__text p {
+            color: #e0d6c8;
+            margin: 16px 0 26px;
+            max-width: 560px;
+        }
+
+        .hero__btns a {
+            margin-right: 12px;
+        }
+
+        /* smaller, nicer hero buttons */
+        .hero-btn {
+            padding: 11px 26px !important;
+            font-size: 13px !important;
+            letter-spacing: 1px !important;
+            text-transform: uppercase;
+            border-radius: 6px !important;
+            font-weight: 600;
+        }
+
+        .hero__btns .btn-outline {
+            background: transparent !important;
+            color: var(--coffee-light) !important;
+            border: 1.5px solid var(--coffee) !important;
+        }
+
+        .hero__btns .btn-outline:hover {
+            background: var(--coffee) !important;
+            color: #1a140e !important;
+        }
+
+        /* hero lifted up + new lines */
+        .hero__item {
+            height: 720px !important;
+            padding-top: 165px !important;
+        }
+
+        .hero__text h2 {
+            font-size: 46px !important;
+            line-height: 54px !important;
+            margin-bottom: 14px !important;
+        }
+
+        .hero__text .welcome {
+            color: var(--coffee-light);
+            font-size: 20px;
+            letter-spacing: .4px;
+            font-weight: 500;
+            margin: 0 0 18px;
+            max-width: none;
+        }
+
+        .hero__text .tagline {
+            color: #e7ddcd;
+            font-size: 16px;
+            max-width: 700px;
+            line-height: 1.95;
+            margin: 0 0 10px;
+        }
+
+        .hero__text .tagline .sep {
+            color: var(--coffee);
+            margin: 0 7px;
+        }
+
+        .hero__text .grow {
+            color: var(--coffee-light);
+            font-style: italic;
+            font-size: 15px;
+            max-width: 700px;
+            margin: 0 0 26px;
+        }
+
+        @media (max-width: 768px) {
+            .hero__item {
+                height: auto !important;
+                padding-top: 130px !important;
+                padding-bottom: 70px !important;
+            }
+        }
+
+        .section-title span {
+            color: var(--coffee);
+        }
+
+        .section-title.center-title {
+            margin-bottom: 32px !important;
+        }
+
+        /* generic dark section — consistent tight spacing for ALL sections */
+        .blk {
+            padding: 50px 0;
+        }
+
+        .blk-ink {
+            background: var(--ink);
+        }
+
+        .blk-panel {
+            background: var(--panel);
+        }
+
+        /* About */
+        .about-photo img {
+            width: 100%;
+            border-radius: 14px;
+            border: 4px solid rgba(193, 154, 107, .3);
+        }
+
+        #about .section-title {
+            margin-bottom: 22px !important;
+        }
+
+        #about .section-title h2 {
+            padding-bottom: 18px !important;
+        }
+
+        #about .about-lead:first-of-type {
+            margin-top: 0;
+        }
+
+        .about-lead {
+            color: #cabdac;
+            font-size: 16px;
+        }
+
+        .about-facts {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+
+        .about-facts li {
+            color: #cabdac;
+            margin-bottom: 9px;
+        }
+
+        .about-facts li i {
+            color: var(--coffee);
+            width: 22px;
+        }
+
+        .about-facts li b {
+            color: #f5ede2;
+        }
+
+        .chip {
+            display: inline-block;
+            background: var(--surface);
+            border: 1px solid rgba(193, 154, 107, .28);
+            color: #cabdac;
+            padding: 5px 13px;
+            border-radius: 50px;
+            margin: 4px 4px 4px 0;
+            font-size: 13px;
+        }
+
+        /* Counter */
+        .counter {
+            background: var(--panel);
+        }
+
+        .counter__item__text h2 {
+            color: var(--coffee);
+        }
+
+        .counter__item__text p {
+            color: #cabdac;
+        }
+
+        .counter__item__text i {
+            font-size: 38px;
+            color: var(--coffee);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Education / Research — clean, borderless (no card box) */
+        .edu-block {
+            background: transparent;
+            border: none;
+            border-left: 2px solid rgba(193, 154, 107, .35);
+            border-radius: 0;
+            padding: 2px 0 6px 20px;
+            margin-bottom: 22px;
+            transition: border-color .2s;
+        }
+
+        .edu-block:hover {
+            border-left-color: var(--coffee);
+        }
+
+        .edu-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .edu-block h4 {
+            color: #f5ede2;
+            font-size: 17px;
+            margin: 0;
+        }
+
+        .edu-block p {
+            color: var(--soft);
+            font-size: 14.5px;
+            margin: 4px 0 0;
+        }
+
+        .edu-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+        }
+
+        .edu-row .yr {
+            white-space: nowrap;
+        }
+
+        .edu-row h4 .at {
+            color: var(--soft);
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        .exp-co {
+            color: #f5ede2;
+            font-size: 18px;
+            margin: 0 0 12px;
+        }
+
+        .exp-role {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+            margin: 8px 0;
+        }
+
+        .exp-role .pos {
+            color: #e8ddcf;
+            font-size: 15px;
+        }
+
+        .exp-role .yr {
+            color: var(--coffee);
+            font-weight: 600;
+            font-size: 13.5px;
+            white-space: nowrap;
+        }
+
+        .exp-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 12px;
+        }
+
+        .exp-links a {
+            color: var(--coffee);
+            font-size: 13px;
+        }
+
+        .exp-links a:hover {
+            color: var(--coffee-light);
+        }
+
+        .exp-links a i {
+            margin-right: 6px;
+        }
+
+        .edu-block .yr {
+            color: var(--coffee);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .edu-block .chip {
+            background: var(--ink);
+        }
+
+        .cert-ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+        }
+
+        .cert-ul li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 11px;
+            color: var(--soft);
+            font-size: 14.5px;
+            line-height: 1.5;
+        }
+
+        .cert-ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .cert-ul li:before {
+            content: '\f00c';
+            font-family: 'FontAwesome';
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: var(--coffee);
+            font-size: 12px;
+        }
+
+        .cert-ul li .yr {
+            color: var(--coffee);
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        /* Experience */
+        .exp-item {
+            background: var(--surface);
+            border-left: 3px solid var(--coffee);
+            border-radius: 10px;
+            padding: 22px 26px;
+            margin-bottom: 18px;
+        }
+
+        .exp-head {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: baseline;
+        }
+
+        .exp-item h4 {
+            color: #f5ede2;
+            font-size: 18px;
+        }
+
+        .exp-item .date {
+            color: var(--coffee);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .exp-item .co {
+            color: var(--coffee);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .exp-item ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .exp-item ul li {
+            color: var(--soft);
+            font-size: 14.5px;
+            margin-bottom: 5px;
+        }
+
+        .exp-item ul li b {
+            color: #e8ddcf;
+        }
+
+        /* grouped, clean experience (Education-style blocks) */
+        .exp-company {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #f5ede2;
+            font-size: 19px;
+            font-weight: 600;
+            margin: 4px 0 22px;
+        }
+
+        .exp-company i {
+            color: var(--coffee);
+        }
+
+        .exp-company span {
+            color: var(--soft);
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .role-block {
+            border-left: 2px solid rgba(193, 154, 107, .35);
+            padding: 2px 0 4px 18px;
+            margin-bottom: 26px;
+            transition: border-color .2s;
+        }
+
+        .role-block:hover {
+            border-left-color: var(--coffee);
+        }
+
+        .role-block h4 {
+            color: #f5ede2;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .role-block h4 .at {
+            color: var(--soft);
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        .role-block .date {
+            display: block;
+            color: var(--coffee);
+            font-weight: 600;
+            font-size: 13px;
+            margin: 4px 0 8px;
+        }
+
+        .role-block p {
+            color: var(--soft);
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Projects */
+        .proj-card {
+            background: var(--surface);
+            border: 1px solid rgba(193, 154, 107, .16);
+            border-radius: 12px;
+            padding: 26px;
+            height: 100%;
+            transition: all .25s;
+        }
+
+        .proj-card:hover {
+            border-color: var(--coffee);
+            transform: translateY(-6px);
+        }
+
+        .proj-card .pico {
+            font-size: 32px;
+            color: var(--coffee);
+            margin-bottom: 14px;
+        }
+
+        .proj-card h4 {
+            color: #f5ede2;
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .proj-card p {
+            color: var(--soft);
+            font-size: 14px;
+        }
+
+        .proj-card .ptech {
+            color: #8c7d6b;
+            font-style: italic;
+            font-size: 12.5px;
+            margin: 8px 0 12px;
+        }
+
+        .proj-card a.plink {
+            color: var(--coffee);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .proj-card .badge-tag {
+            float: right;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            color: var(--coffee);
+            border: 1px solid rgba(193, 154, 107, .4);
+            padding: 2px 9px;
+            border-radius: 50px;
+        }
+
+        .grp-label {
+            color: var(--coffee);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 13px;
+            margin: 8px 0 18px;
+        }
+
+        /* Honors */
+        .hon-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .hon-list li {
+            background: var(--surface);
+            border: 1px solid rgba(193, 154, 107, .16);
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            color: #cabdac;
+        }
+
+        .hon-list li i {
+            color: var(--coffee);
+            margin-right: 10px;
+        }
+
+        .hon-list li b {
+            color: #f5ede2;
+        }
+
+        .hon-card {
+            background: var(--surface);
+            border: 1px solid rgba(193, 154, 107, .16);
+            border-radius: 10px;
+            padding: 16px 18px;
+            color: #cabdac;
+            height: 100%;
+            display: flex;
+            align-items: flex-start;
+            transition: border-color .2s;
+        }
+
+        .hon-card:hover {
+            border-color: var(--coffee);
+        }
+
+        .hon-card i {
+            color: var(--coffee);
+            margin-right: 12px;
+            margin-top: 3px;
+        }
+
+        .hon-card b {
+            display: block;
+            color: #f5ede2;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .hon-card span {
+            display: block;
+            color: var(--soft);
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .sub-h {
+            color: var(--coffee);
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .sub-h i {
+            margin-right: 8px;
+        }
+
+        /* Contact */
+        .callto {
+            position: relative;
+        }
+
+        .callto:before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(12, 9, 6, .93) 0%, rgba(12, 9, 6, .74) 55%, rgba(12, 9, 6, .6) 100%);
+        }
+
+        .callto .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .callto__text h2 {
+            color: #fff;
+        }
+
+        .callto__text p {
+            color: var(--coffee);
+        }
+
+        .info-line {
+            color: #cabdac;
+            margin-bottom: 8px;
+        }
+
+        .info-line i {
+            color: var(--coffee);
+            width: 20px;
+        }
+
+        .callto__text a.gt {
+            background: var(--coffee);
+            color: #1a140e;
+            padding: 12px 30px;
+            display: inline-block;
+            border-radius: 4px;
+            margin-top: 14px;
+        }
+
+        .contact-icons {
+            display: flex;
+            gap: 14px;
+            margin-top: 24px;
+        }
+
+        .contact-icons a {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(193, 154, 107, .14);
+            border: 1.5px solid var(--coffee);
+            color: var(--coffee);
+            font-size: 1.2rem;
+            transition: all .25s;
+        }
+
+        .contact-icons a:hover {
+            background: var(--coffee);
+            color: #1a140e;
+            transform: translateY(-4px);
+        }
+
+        .mini-footer {
+            background: #0a0805;
+            text-align: center;
+            padding: 22px 16px;
+            color: #9c8f7e;
+            font-size: 13px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0a0805;
+        }
+
+        .footer__option__item h5 {
+            color: #f5ede2;
+        }
+
+        .footer__option__item p,
+        .footer__option__item ul li a {
+            color: var(--soft);
+        }
+
+        .footer__top__social a,
+        .footer__option__item ul li a:hover {
+            color: var(--coffee);
+        }
+
+        .footer__copyright__text {
+            color: #9c8f7e;
+        }
+
+        /* ============ HARD KILL every sky-blue state ============ */
+        * {
+            -webkit-tap-highlight-color: transparent !important;
+        }
+
+        :focus,
+        :focus-visible,
+        :active {
+            outline: none !important;
+        }
+
+        ::selection {
+            background: var(--coffee);
+            color: #1a140e;
+        }
+
+        ::-moz-selection {
+            background: var(--coffee);
+            color: #1a140e;
+        }
+
+        a,
+        a:link,
+        a:visited,
+        a:hover,
+        a:focus,
+        a:active,
+        button,
+        button:hover,
+        button:focus,
+        button:active,
+        .primary-btn,
+        .primary-btn:hover,
+        .primary-btn:focus,
+        .primary-btn:active,
+        .primary-btn:visited,
+        .header__nav__menu ul li a,
+        .header__nav__menu ul li a:hover,
+        .header__nav__menu ul li a:focus,
+        .header__nav__menu ul li a:active {
+            text-decoration: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        a,
+        a:link,
+        a:visited {
+            color: var(--coffee);
+        }
+
+        a:hover,
+        a:focus,
+        a:active {
+            color: var(--coffee-light) !important;
+        }
+
+        .primary-btn,
+        .primary-btn:link,
+        .primary-btn:visited,
+        .primary-btn:hover,
+        .primary-btn:focus,
+        .primary-btn:active {
+            color: #1a140e !important;
+            background: var(--coffee) !important;
+        }
+
+        .callto__text a.gt,
+        .callto__text a.gt:hover,
+        .callto__text a.gt:focus,
+        .callto__text a.gt:active {
+            color: #1a140e !important;
+            background: var(--coffee) !important;
+        }
+
+        .header__nav__menu ul li a {
+            color: #e8ddcf !important;
+        }
+
+        .header__nav__menu ul li a:hover,
+        .header__nav__menu ul li.active a {
+            color: var(--coffee-light) !important;
+        }
+
+        .owl-dots button.active,
+        .owl-dots button.active:after {
+            background: var(--coffee) !important;
+            border-color: var(--coffee) !important;
+        }
+
+        .owl-dots button:after {
+            border-color: var(--coffee) !important;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--coffee) !important;
+            box-shadow: none !important;
+        }
+
+        @media (max-width: 992px) {
+            .header__nav__menu ul li a {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero__text h2 {
+                font-size: 36px;
+            }
+
+            .brand-text {
+                font-size: 17px;
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-6">
+                    <div class="header__logo">
+                        <a href="./index.html">
+                            <span class="brand-text">Shahajadi Sadia Afsana</span></a>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="header__nav__option">
+                        <nav class="header__nav__menu mobile-menu">
+                            <ul>
+                                <li class="active"><a href="#home">Home</a></li>
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#education">Education</a></li>
+                                <li><a href="#experience">Experience</a></li>
+                                <li><a href="#research">Research</a></li>
+                                <li><a href="#projects">Projects</a></li>
+                                <li><a href="#honors">Honors</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+
+    <!-- 1. HOME / HERO -->
+    <section class="hero" id="home">
+        <div class="hero__slider owl-carousel">
+            <div class="hero__item set-bg" data-setbg="img/hero.jpeg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="hero__text">
+                                <span>HELLO, I'M</span>
+                                <h2>Shahajadi Sadia Afsana</h2>
+                                <p class="welcome">Welcome to my creative space ☕</p>
+                                <p class="tagline">
+                                    Data Analyst | Shaping the Future of Agriculture with Analytics | Former Business
+                                    Analyst
+                                    <Br> Aspiring PhD Student | Prospective Researcher
+                                </p>
+                                <p class="grow">Data Analytics • ML • DL • LLMs • Agri-Tech • Satellite Imagery •
+                                    Geospatial Analytics</p>
+                                <div class="hero__btns">
+                                    <a href="#contact" class="primary-btn hero-btn">Contact</a>
+                                    <a href="Shahajadi_Sadia_Afsana_Resume.pdf" download
+                                        class="primary-btn hero-btn">Resume</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ABOUT (full details) -->
+    <section class="blk blk-ink" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 mb-4">
+                    <div class="about-photo"><img src="img/MUMU.jpeg" alt="Shahajadi Sadia Afsana"></div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="section-title"><span>About me</span>
+                        <h2>Data into impact-driven decisions</h2>
+                    </div>
+                    <p class="about-lead">I'm a <b style="color:#f5ede2">Data Analyst</b> and Computer Science graduate
+                        from AUST with 3+ years of experience turning raw data into clear, actionable insight. I work
+                        across the full data lifecycle — collecting, cleaning, and engineering data, building automated
+                        ETL pipelines, and delivering decision-ready analysis, reports, and dashboards in Python &amp;
+                        SQL.</p>
+                    <p class="about-lead">My hands-on experience spans the complete machine-learning pipeline - EDA,
+                        feature engineering, modeling, and evaluation along with deep learning and modern RAG / LLM
+                        applications. I'm a curious, fast-learning problem-solver who enjoys research and building
+                        ethical, impact-driven solutions - in both industry and academia.</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="about-facts">
+                                <li><i class="fa fa-map-marker"></i> <b>Location:</b> Dhaka, Bangladesh</li>
+                                <li><i class="fa fa-graduation-cap"></i> <b>Degree:</b> B.Sc. in CSE, AUST</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="about-facts">
+                                <li><i class="fa fa-briefcase"></i> <b>Experience:</b> 3+ Years</li>
+                                <li><i class="fa fa-envelope"></i> <b>Open to:</b> Jobs &amp; PhD</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats strip -->
+    <!-- <section class="counter">
+        <div class="container">
+            <div class="counter__content">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6"><div class="counter__item"><div class="counter__item__text"><i class="fa fa-briefcase"></i><h2 class="counter_num">3</h2><p>Years Experience</p></div></div></div>
+                    <div class="col-lg-3 col-md-6 col-sm-6"><div class="counter__item second__item"><div class="counter__item__text"><i class="fa fa-folder-open"></i><h2 class="counter_num">8</h2><p>Featured Projects</p></div></div></div>
+                    <div class="col-lg-3 col-md-6 col-sm-6"><div class="counter__item third__item"><div class="counter__item__text"><i class="fa fa-flask"></i><h2 class="counter_num">2</h2><p>Research Works</p></div></div></div>
+                    <div class="col-lg-3 col-md-6 col-sm-6"><div class="counter__item four__item"><div class="counter__item__text"><i class="fa fa-certificate"></i><h2 class="counter_num">4</h2><p>Certifications</p></div></div></div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- 3. EDUCATION -->
+    <section class="blk blk-panel" id="education">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <div class="section-title center-title"><span>Academic</span>
+                        <h2>Education</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="edu-block">
+                        <div class="edu-row">
+                            <h4>B.Sc. in Computer Science &amp; Engineering</h4><span class="yr">2018–2023</span>
+                        </div>
+                        <p>Ahsanullah University of Science &amp; Technology (AUST), Dhaka</p>
+                    </div>
+                    <div class="edu-block">
+                        <div class="edu-row">
+                            <h4>Higher Secondary Certificate</h4><span class="yr">2015–2017</span>
+                        </div>
+                        <p>Holy Cross College, Dhaka</p>
+                    </div>
+                    <div class="edu-block">
+                        <div class="edu-row">
+                            <h4>Secondary School Certificate</h4><span class="yr">2013–2015</span>
+                        </div>
+                        <p>Bangladesh Bank High School, Dhaka</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. EXPERIENCE -->
+    <section class="blk blk-ink" id="experience">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <div class="section-title center-title"><span>Career Path</span>
+                        <h2>Work Experience</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="edu-block">
+                        <h4 class="exp-co">iFarmer Asia Ltd. <span class="at">· Dhaka, Bangladesh</span></h4>
+                        <div class="exp-role"><span class="pos">Data Analyst</span><span class="yr">Mar 2024 –
+                                Present</span></div>
+                        <div class="exp-role"><span class="pos">Associate Data Scientist</span><span class="yr">Dec 2023
+                                – Mar 2024</span></div>
+                        <div class="exp-role"><span class="pos">Data Analyst (Intern)</span><span class="yr">Sep 2023 –
+                                Dec 2023</span></div>
+                        <div class="exp-links">
+                            <a href="https://ifarmer.asia" target="_blank" rel="noopener"><i class="fa fa-globe"></i>
+                                Website</a>
+                            <a href="https://www.facebook.com/iFarmer.asia" target="_blank" rel="noopener"><i
+                                    class="fa fa-facebook"></i> Facebook</a>
+                        </div>
+                    </div>
+                    <div class="edu-block">
+                        <h4 class="exp-co">Catalyst Solutions <span class="at">· Dhaka, Bangladesh</span></h4>
+                        <div class="exp-role"><span class="pos">Market Research Data Analyst</span><span class="yr">Feb
+                                2023 – Jul 2023</span></div>
+                        <div class="exp-links">
+                            <a href="https://www.linkedin.com/company/catalystsolutionsbd" target="_blank"
+                                rel="noopener"><i class="fa fa-linkedin"></i> LinkedIn</a>
+                            <a href="https://www.facebook.com/CatalystSolutionsbd" target="_blank" rel="noopener"><i
+                                    class="fa fa-facebook"></i> Facebook</a>
+                        </div>
+                    </div>
+                    <div class="edu-block">
+                        <h4 class="exp-co">Dhaka Tuition <span class="at">· Dhaka, Bangladesh</span></h4>
+                        <div class="exp-role"><span class="pos">Senior Tutor</span><span class="yr">Feb 2018 –
+                                Present</span></div>
+                        <div class="exp-links">
+                            <a href="https://dhakatuitionbd.com/" target="_blank" rel="noopener"><i
+                                    class="fa fa-globe"></i> Website</a>
+                            <a href="https://www.facebook.com/Dhakatuition" target="_blank" rel="noopener"><i
+                                    class="fa fa-facebook"></i> Facebook</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. RESEARCH -->
+    <section class="blk blk-panel" id="research">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <div class="section-title center-title"><span>Academic</span>
+                        <h2>Research</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="edu-block">
+                        <h4>ML-based Investment Decision Support System</h4>
+                        <p>Candlestick pattern identification &amp; price-breakout prediction — harmonic patterns
+                            (Gartley, Butterfly, BAT, Crab) on Dhaka Stock Exchange data (2000–2020) using ANN &amp; MLP
+                            across five ML models.</p>
+                    </div>
+                    <div class="edu-block">
+                        <h4>Mental Health Detection with ML &amp; Deep Learning</h4>
+                        <p>Research Poster · CARSIT Masterclass 2026. Benchmarking ML/DL methods for early mental-health
+                            detection across survey, social-media &amp; health-record data, with predictive biomarkers
+                            and ethical analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PROJECTS -->
+    <section class="blk blk-ink" id="projects">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <div class="section-title center-title"><span>Portfolio</span>
+                        <h2>Featured Projects</h2>
+                    </div>
+                </div>
+            </div>
+
+            <p class="grp-label">Professional</p>
+            <div class="row mb-2">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="proj-card"><span class="badge-tag">Professional</span>
+                        <div class="pico"><i class="fa fa-map-marker"></i></div>
+                        <h4>Krishi Map — iFarmer</h4>
+                        <p>End-to-end interactive geospatial system used company-wide for decisions.</p>
+                        <div class="ptech">Python · Folium · Google APIs</div><a class="plink"
+                            href="https://map.ifarmer.asia/" target="_blank" rel="noopener">Live Demo ↗</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="proj-card"><span class="badge-tag">Professional</span>
+                        <div class="pico"><i class="fa fa-credit-card"></i></div>
+                        <h4>Farmer Credit Scoring</h4>
+                        <p>Farmer-profiling logic &amp; data-prep pipeline supporting lending at a ~98% repayment rate.
+                        </p>
+                        <div class="ptech">Python · ML · Feature Engineering</div><a class="plink" href="#contact">Ask
+                            me ↗</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="proj-card"><span class="badge-tag">Professional</span>
+                        <div class="pico"><i class="fa fa-cloud"></i></div>
+                        <h4>Flood &amp; Weather Early-Warning System</h4>
+                        <p>Early SMS rainfall &amp; flood alerts for farmers — built on the Google Flood Hub API,
+                            integrated into the iFarmer platform.</p>
+                        <div class="ptech">Python · Google Flood Hub API</div><a class="plink" href="#contact">Ask me
+                            ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <p class="grp-label">Personal</p>
+            <div class="row mb-2">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="proj-card"><span class="badge-tag">Personal</span>
+                        <div class="pico"><i class="fa fa-file-text-o"></i></div>
+                        <h4>AI Document System — RAG</h4>
+                        <p>RAG over messy PDFs: chunking, embeddings, FAISS retrieval, citation-enforced generation.</p>
+                        <div class="ptech">FAISS · sentence-transformers · Groq</div><a class="plink"
+                            href="https://github.com/sadiaafsana138/Ai-document-system" target="_blank"
+                            rel="noopener">View Repo ↗</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="proj-card"><span class="badge-tag">Personal</span>
+                        <div class="pico"><i class="fa fa-magic"></i></div>
+                        <h4>LLM Apps — Gemini &amp; Groq</h4>
+                        <p>Chatbots &amp; a note-generating agent: PaperMind, CodeLens AI, LearnMate AI.</p>
+                        <div class="ptech">Gemini API · Groq · Streamlit</div><a class="plink"
+                            href="https://github.com/sadiaafsana138/Python-AI-Projects" target="_blank"
+                            rel="noopener">View Repo ↗</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="proj-card"><span class="badge-tag">Personal</span>
+                        <div class="pico"><i class="fa fa-sitemap"></i></div>
+                        <h4>ML End-to-End Pipeline</h4>
+                        <p>EDA, leakage-free preprocessing, feature engineering, CV model selection &amp; evaluation.
+                        </p>
+                        <div class="ptech">Python · scikit-learn</div><a class="plink"
+                            href="https://github.com/sadiaafsana138/ML-End-to-End-Workflow" target="_blank"
+                            rel="noopener">View Repo ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <p class="grp-label">Academic</p>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="proj-card"><span class="badge-tag">Academic</span>
+                        <div class="pico"><i class="fa fa-shield"></i></div>
+                        <h4>Face Mask Detection</h4>
+                        <p>Binary image-classification model detecting whether a person is wearing a mask.</p>
+                        <div class="ptech">Python · PyTorch</div><a class="plink"
+                            href="https://github.com/sadiaafsana138/A-Deep-Learning-Project-on-Face-Mask-Detection"
+                            target="_blank" rel="noopener">View Repo ↗</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="proj-card"><span class="badge-tag">Academic</span>
+                        <div class="pico"><i class="fa fa-heartbeat"></i></div>
+                        <h4>Heart Attack Prediction</h4>
+                        <p>ML project predicting heart-attack risk using multiple models.</p>
+                        <div class="ptech">Python · NumPy · Pandas</div><a class="plink"
+                            href="https://github.com/sadiaafsana138/Heart-Attack-Possibility-Prediction"
+                            target="_blank" rel="noopener">View Repo ↗</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="proj-card"><span class="badge-tag">Academic</span>
+                        <div class="pico"><i class="fa fa-music"></i></div>
+                        <h4>Music Genre Classification</h4>
+                        <p>Model that classifies music into genres from mixed audio (GTZAN dataset).</p>
+                        <div class="ptech">Python · ML</div><a class="plink"
+                            href="https://github.com/sadiaafsana138/Music-Genre-Classification" target="_blank"
+                            rel="noopener">View Repo ↗</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. HONORS & ECA -->
+    <section class="blk blk-panel" id="honors">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <div class="section-title center-title"><span>Beyond Work</span>
+                        <h2>Honors &amp; Certifications</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h5 class="sub-h"><i class="fa fa-certificate"></i> Certifications</h5>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="hon-card"><i class="fa fa-check-circle"></i>
+                        <div><b>Phitron AI/ML</b><span>Deep Learning, NLP &amp; Generative AI · 2026–27</span></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="hon-card"><i class="fa fa-check-circle"></i>
+                        <div><b>Research Masterclass</b><span>CARSIT · 2026</span></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="hon-card"><i class="fa fa-check-circle"></i>
+                        <div><b>Data Analyst Bootcamp</b><span>Alex The Analyst</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h5 class="sub-h"><i class="fa fa-trophy"></i> Honors &amp; Activities</h5>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="hon-card"><i class="fa fa-star"></i>
+                        <div><b>Senior Sub Executive</b><span>AUST Cultural Club (AUSTCC) · 2023</span></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="hon-card"><i class="fa fa-star"></i>
+                        <div><b>Sports Team Leader</b><span>Trojan Team, Holy Cross College</span></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="hon-card"><i class="fa fa-star"></i>
+                        <div><b>Mathematics Olympiad</b><span>Holy Cross College · 2015</span></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="hon-card"><i class="fa fa-star"></i>
+                        <div><b>Divisional Science Olympiad</b><span>Bangladesh Academy of Sciences · 2015</span></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="hon-card"><i class="fa fa-users"></i>
+                        <div><b>Former Guide</b><span>Bangladesh Girl Guides Association</span></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="hon-card"><i class="fa fa-star"></i>
+                        <div><b>Ranked 1st in Class</b><span>Grade 1 to 10</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CONTACT -->
+    <section class="callto spad set-bg" data-setbg="img/2.jpg" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="callto__text">
+                        <h2>Let's build something with data.</h2>
+                        <p>Open to <b>Data &amp; ML professional roles, PhD opportunities &amp; collaborations</b>.<Br>
+                            Always learning, always growing — let's connect!</p>
+                        <div class="info-line"><i class="fa fa-envelope"></i> s.sadiaafsanamumu@gmail.com</div>
+                        <div class="info-line"><i class="fa fa-map-marker"></i> Dhaka, Bangladesh</div>
+                        <div class="contact-icons">
+                            <a href="https://github.com/sadiaafsana138" target="_blank" rel="noopener" title="GitHub"><i
+                                    class="fa fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/sadia-afsana-mumu/" target="_blank" rel="noopener"
+                                title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://www.facebook.com/sadiaafsana138" target="_blank" rel="noopener"
+                                title="Facebook"><i class="fa fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slim copyright -->
+    <div class="mini-footer">©
+        <script>document.write(new Date().getFullYear());</script> Shahajadi Sadia Afsana · Data Analyst · Data Engineer
+        · ML Engineer
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Scrollspy: highlight the nav link of the section in view -->
+    <script>
+        (function () {
+            var links = Array.prototype.slice.call(document.querySelectorAll('.header__nav__menu ul li a[href^="#"]'));
+            var items = [];
+            links.forEach(function (a) {
+                var sec = document.getElementById(a.getAttribute('href').slice(1));
+                if (sec) items.push({ li: a.parentElement, sec: sec });
+            });
+            function onScroll() {
+                var offset = 140;
+                var current = items[0];
+                items.forEach(function (m) {
+                    if (m.sec.getBoundingClientRect().top - offset <= 0) current = m;
+                });
+                items.forEach(function (m) { m.li.classList.toggle('active', m === current); });
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('load', onScroll);
+            onScroll();
+        })();
+    </script>
+</body>
+
+</html>
